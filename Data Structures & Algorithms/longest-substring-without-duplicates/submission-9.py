@@ -1,0 +1,64 @@
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+
+        # input of a string
+
+        # output the length of longest substring
+        # 2 pointer
+
+        # find length, if character is the same, subtract r - l
+        # then assign l = r
+
+        # keep that as a max length
+
+        # sliding window
+
+        charSet = set()
+        l = 0
+        res = 0
+        
+        for r in range(len(s)):
+            while s[r] in charSet:
+                charSet.remove(s[l])
+                l += 1
+            charSet.add(s[r])
+            res = max(res, r-l + 1)
+
+        return res
+
+
+
+
+
+
+
+
+
+
+
+        # l, r = 0, 1
+        # longest_substring = 0
+
+        # if len(s) == 1:
+        #     return 1
+
+        # while r < len(s):
+
+        #     current_slice = str(s[l:r])
+
+        #     if s[r] in current_slice:
+        #         res = r - l
+        #         longest_substring = max(longest_substring, res)
+        #         l = r
+        #         r += 1
+        #     elif r == len(s)-1 and s[r] not in current_slice:
+        #         res = r - l
+        #         longest_substring = max(longest_substring, res)
+        #         break
+
+        #     else:
+        #         r += 1
+
+        # return longest_substring
+
+        
